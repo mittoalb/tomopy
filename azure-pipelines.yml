@@ -148,21 +148,29 @@ jobs:
     vmImage: 'windows-latest'
   strategy:
     matrix:
+      Python-nomkl:
+        python.version: 'nomkl'
+        use.mkl: 'OFF'
+        use.cuda: 'OFF'
       Python-310:
         python.version: '310'
+        use.mkl: 'ON'
+        use.cuda: 'OFF'
     maxParallel: 4
   steps:
   - powershell: Write-Host "##vso[task.prependpath]$env:CONDA\Scripts"
     displayName: Add conda to PATH
   - script: |
-      conda env create -n tomopy --quiet -f envs/win-$(python.version).yml --solver=libmamba -c conda-forge
+      conda config --add channels conda-forge
+      conda config --remove channels defaults
+      conda env create -n tomopy --quiet -f envs/win-$(python.version).yml --solver=libmamba
     displayName: Create build environment
   - script: conda list -n tomopy
     displayName: List build environment
   - script: |
       call activate tomopy
       pip install . --no-deps
-      cmake -S . -B build -GNinja -DCMAKE_INSTALL_PREFIX=%CONDA_PREFIX%\Library -DTOMOPY_USE_OPENCV=ON -DCMAKE_BUILD_TYPE=Release
+      cmake -S . -B build -GNinja -DCMAKE_INSTALL_PREFIX=%CONDA_PREFIX%\Library -DTOMOPY_USE_OPENCV=ON -DCMAKE_BUILD_TYPE=Release -DTOMOPY_USE_MKL:BOOL=$(use.mkl) -DTOMOPY_USE_CUDA:BOOL=$(use.cuda)
       cmake --build build
       cmake --install build
     displayName: Setup and install

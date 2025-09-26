@@ -9,6 +9,9 @@ dependencies:
   - cxx-compiler
   - dxchange
   - git
+  # Compilation errors for gcc 14 and later
+  - gcc<14
+  - gxx<14
   - h5py
   - libgomp
   - libnpp-dev

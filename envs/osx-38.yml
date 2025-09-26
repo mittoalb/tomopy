@@ -17,6 +17,7 @@ dependencies:
   - scipy >=1.12,<2
   - setuptools_scm
   - setuptools_scm_git_archive
+  - tifffile>=2019,<2025.2.18
 # Optional packages
   # - pyctest>0.0.10
   - mkl

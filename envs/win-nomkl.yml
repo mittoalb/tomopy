@@ -12,6 +12,7 @@ dependencies:
   - ninja
   - numexpr==2.*
   - numpy>=2.0,<3
+  - pkgconfig
   - python=3.10
   - pywavelets==1.*
   - scikit-image>=0.22,<0.26

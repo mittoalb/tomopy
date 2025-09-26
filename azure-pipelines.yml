@@ -26,7 +26,7 @@ jobs:
 #   strategy:
 #     matrix:
 #       Python38:
-#         python.version: '38'
+#         python.version: '310'
 #     maxParallel: 4
 #   steps:
 #   - script: echo "CUDA version is $(CUDA_VERSION)"
@@ -69,8 +69,8 @@ jobs:
         python.version: 'nomkl'
         use.mkl: 'OFF'
         use.cuda: 'OFF'
-      Python-38:
-        python.version: '38'
+      Python-310:
+        python.version: '310'
         use.mkl: 'ON'
         use.cuda: 'OFF'
       Python-cuda:
@@ -108,8 +108,8 @@ jobs:
     vmImage: 'macOS-latest'
   strategy:
     matrix:
-      Python-38:
-        python.version: '38'
+      Python-310:
+        python.version: '310'
     maxParallel: 4
   steps:
   - script: |
@@ -148,8 +148,8 @@ jobs:
     vmImage: 'windows-latest'
   strategy:
     matrix:
-      Python-38:
-        python.version: '38'
+      Python-310:
+        python.version: '310'
     maxParallel: 4
   steps:
   - powershell: Write-Host "##vso[task.prependpath]$env:CONDA\Scripts"

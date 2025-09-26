@@ -155,7 +155,7 @@ jobs:
   - powershell: Write-Host "##vso[task.prependpath]$env:CONDA\Scripts"
     displayName: Add conda to PATH
   - script: |
-      conda env create -n tomopy --quiet -f envs/win-$(python.version).yml --solver=libmamba
+      conda env create -n tomopy --quiet -f envs/win-$(python.version).yml --solver=libmamba -c conda-forge
     displayName: Create build environment
   - script: conda list -n tomopy
     displayName: List build environment

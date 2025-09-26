@@ -23,7 +23,7 @@ dependencies:
   # - timemory=*=py37h* # the nompi build
   - mkl
   - mkl-devel
-  - mkl_fft
+  - mkl_fft >=1.2,<2
   - opencv>=3.4
   - pytest
   - pytest-cov

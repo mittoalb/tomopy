@@ -21,7 +21,7 @@ dependencies:
 # Optional packages
   - mkl
   - mkl-devel
-  - mkl_fft
+  - mkl_fft >=1.2,<2
   - opencv>=3.4,<4.2
   - pytest
   - pytest-cov

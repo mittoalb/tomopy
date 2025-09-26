@@ -4,7 +4,8 @@ channels:
 dependencies:
   - c-compiler
   - cmake
-  - cuda-nvcc_linux-64<12.4
+  - cuda-compiler
+  - cuda-version=12
   - cxx-compiler
   - dxchange
   - git

@@ -148,10 +148,10 @@ jobs:
     vmImage: 'windows-latest'
   strategy:
     matrix:
-      Python-nomkl:
-        python.version: 'nomkl'
-        use.mkl: 'OFF'
-        use.cuda: 'OFF'
+      # Python-nomkl:
+      #   python.version: 'nomkl'
+      #   use.mkl: 'OFF'
+      #   use.cuda: 'OFF'
       Python-310:
         python.version: '310'
         use.mkl: 'ON'

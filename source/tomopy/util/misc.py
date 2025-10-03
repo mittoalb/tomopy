@@ -126,11 +126,11 @@ if fft_impl == 'mkl_fft':
 
 
     def fft2(x, s=None, axes=(-2,-1), overwrite_input=False, extra_info=None):
-        return mkl_fft.fft2(x, shape=s, axes=axes, overwrite_x=overwrite_input)
+        return mkl_fft.fft2(x, s=s, axes=axes, overwrite_x=overwrite_input)
 
 
     def ifft2(x, s=None, axes=(-2,-1), overwrite_input=False, extra_info=None):
-        return mkl_fft.ifft2(x, shape=s, axes=axes, overwrite_x=overwrite_input)
+        return mkl_fft.ifft2(x, s=s, axes=axes, overwrite_x=overwrite_input)
 
 else:
     import numpy as np

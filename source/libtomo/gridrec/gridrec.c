@@ -288,9 +288,9 @@ gridrec(const float* data, int dy, int dt, int dx, const float* center,
 #ifdef TOMOPY_USE_FFTW
     fftwf_make_planner_thread_safe();
     fftwf_plan reverse_1d;
-    reverse_1d = fftwf_plan_dft_1d(pdim, sino, sino, FFTW_BACKWARD, FFTW_ESTIMATE);
+    reverse_1d = fftwf_plan_dft_1d(pdim, (fftwf_complex *)sino, (fftwf_complex *)sino, FFTW_BACKWARD, FFTW_ESTIMATE);
     fftwf_plan forward_2d;
-    forward_2d = fftwf_plan_dft_2d(pdim, pdim, H[0], H[0], FFTW_FORWARD, FFTW_ESTIMATE);
+    forward_2d = fftwf_plan_dft_2d(pdim, pdim, (fftwf_complex *)H[0], (fftwf_complex *)H[0], FFTW_FORWARD, FFTW_ESTIMATE);
 #endif
 
     for(p = 0; p < dt; p++)

@@ -4,27 +4,32 @@ channels:
 dependencies:
   - c-compiler
   - cmake
-  - cuda-nvcc_linux-64<12.4
+  - cuda-compiler
+  - cuda-version=12
   - cxx-compiler
   - dxchange
   - git
+  # Compilation errors for gcc 14 and later
+  - gcc<14
+  - gxx<14
   - h5py
   - libgomp
   - libnpp-dev
   - ninja
-  - numexpr
-  - numpy<1.22.4|>=1.23.0
+  - numexpr==2.*
+  - numpy>=2.0,<3
   - python
-  - pywavelets
-  - scikit-image>=0.17
-  - scipy
+  - pywavelets==1.*
+  - scikit-image>=0.22,<0.26
+  - scipy >=1.12,<2
   - setuptools_scm
   - setuptools_scm_git_archive
+  - tifffile>=2019,<2025.2.18
 # Optional packages
   # - pyctest>0.0.10
   # - timemory=*=py37h* # the nompi build
   - mkl
   - mkl-devel
-  - mkl_fft
+  - mkl_fft >=1.2,<2
   - pytest
   - pytest-cov
